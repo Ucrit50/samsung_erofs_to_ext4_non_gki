@@ -8,12 +8,12 @@ on:
       GSI:
         description: 'Samfw Link For AP'
         required: true
-        default: ' AP LINK FROM SAMFW'
+        default: https://15-samfw.cloud/v2/IxJCDiMnLhseGzMFHiQ7HS4RQjANOx4lFzssIDs2ByAzMUEgOzEUQDMQMCMBOyw/LycsAzUIMC0BJzQ/NSw+FC9APAYDQC8OAQMNAC4lNB8DJB4KIzgHIDQ4QRQ1J0E9NRcCBBI2PiMzOx4vCRIwKyM4BQAjCDsADSwCMTwABgYJLzxALwBCPxI4BkIeCzwGHgM8FCMkNDEjCxVACTghHzInDQYuFx8rIwAvJCFAMxE8EQY5NRshDjURPho0ES8kNRYhOR44LwsJEQc5NBsjKyEAPg4hAAYsLjgeLDQRHg4yJTMsMiUNKzwAPh8mGzk5FyUzDTUHQQEuByADISxBIwMnOUANQAokMzYCICMXPjkDFzA1CS8pDTsxHhwzQAZCDS8gJg0DIjAeOyE8Fwc7Pw0sLiMeLD4gIxY7MDMsKTwvA0EELzE5ADgxMDMNCzQwHgMjQB4DNBQ4MEEHLwsiOThALyQhOEEmMic+QDhAHgo1OCAmAy8vIy8ILCYNMS8SLwc+HyE4Myk4MT4DIwMNKy4nBz8JETA2HhIUPTU4IEImBz4MPAAsHA8nBR8zEQY9IUAzBDQAPjoNLCAgCTs+NR4RLCkeNi4XHhcuJyM4BkIjAzQ/ARY0QCMDNDAeDRMT
       
       Firmware:
         description: 'Firmware version'
         required: true
-        default: 'EG - :A055FXXU2AWK1'
+        default: A055FXXU2BWL6
 
 jobs:
   Build:
@@ -21,7 +21,7 @@ jobs:
 
     steps:
     - name: Checkout Repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Install Dependencies
       run: |
@@ -53,7 +53,7 @@ jobs:
       run: mv ./last/EXT4_RW_AP.zip ./last/${{ github.event.inputs.Firmware }}.zip
 
     - name: Upload Artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: EXT4_RW_AP
         path: ./last/${{ github.event.inputs.Firmware }}.zip
